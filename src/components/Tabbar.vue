@@ -2,7 +2,7 @@
   <div id="tabber">
     <van-tabbar
       v-model="active"
-      active-color="#2782EA"
+      active-color="red"
       inactive-color="#6E6E6E"
     >
       <van-tabbar-item
