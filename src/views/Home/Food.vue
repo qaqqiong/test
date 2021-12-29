@@ -1,16 +1,15 @@
 <template>
   <div id="recommend">
     <ul>
-      <li v-for="(item, index) in message" :key="index" @click="toRecommendDetails(item.tag_id)">
+      <li v-for="(item, index) in message" :key="index">
         <div class="title">{{ item.title }}</div>
         <img v-show="item.image_url!=null&&item.image_url!=''" :src="item.image_url">
         <div class="message">
-          <span class="zd" v-show="index < 3">置顶</span>
           <span class="belong">{{ item.media_name }}</span>
           <span class="com">{{item.comment_count}}评论</span>
           <span class="datetime">{{item.datetime}}</span>
         </div>
-        <hr v-show="index>2" />
+        <hr />
       </li>
     </ul>
   </div>
@@ -32,7 +31,7 @@ export default {
         method: "get",
         url: "/list/",
         params: {
-          tag: "__all__",
+          tag: "news_food",
           ac: "wap",
           count: "20",
           format: "json_raw",
@@ -50,10 +49,6 @@ export default {
           console.log(error);
         });
     },
-    toRecommendDetails(value){
-      this.$store.commit("setRecommendDetail", value);
-      this.$router.push({name:"RecommendDetail"})
-    }
   },
   computed: {},
 };

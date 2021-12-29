@@ -6,8 +6,12 @@
         <Recommend></Recommend>
       </van-tab>
       <van-tab title="热榜">内容 3</van-tab>
-      <van-tab title="视频">内容 4</van-tab>
-      <van-tab title="小说">内容 5</van-tab>
+      <van-tab title="美食">
+        <Food></Food>
+      </van-tab>
+      <van-tab title="历史">
+        <History></History>
+      </van-tab>
       <van-tab title="宁波">内容 6</van-tab>
     </van-tabs>
     <div class="select">
@@ -17,8 +21,10 @@
 </template>
 <script>
 import Recommend from "./Recommend.vue";
+import Food from "./Food.vue";
+import History from "./History.vue"
 export default {
-  components: { Recommend },
+  components: { Recommend, Food ,History},
   data() {
     return {
       active: 1,
@@ -35,7 +41,7 @@ export default {
 .van-tabs--line .van-tabs__wrap {
   width: 414px;
 }
-.van-tabs__nav--line.van-tabs__nav--complete{
+.van-tabs__nav--line.van-tabs__nav--complete {
   margin-right: 48px;
 }
 .select {

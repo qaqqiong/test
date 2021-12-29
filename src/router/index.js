@@ -50,5 +50,14 @@ export default new Router({
             component: () =>
                 import ("@/views/File/File.vue")
         },
+        //推荐详情界面
+        {
+            name: "RecommendDetail",
+            path: "/home/recommenddetail",
+            meta: { showNav: true },
+            component: () =>
+                import ("@/views/Home/RecommendDetail.vue")
+
+        }
     ]
 })

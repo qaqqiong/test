@@ -8,6 +8,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
         state: {
             //此处的键值对就是vuex要管理的状态
+            recommendDetail: {}
         },
         //方法 用来给数据赋值
         mutations,

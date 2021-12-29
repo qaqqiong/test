@@ -1,1 +1,5 @@
-export default {}
+export default {
+    setRecommendDetail(state, recommend) {
+        this.state.recommendDetail = recommend
+    },
+}
