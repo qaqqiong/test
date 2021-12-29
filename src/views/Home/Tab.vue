@@ -33,9 +33,14 @@ export default {
   display: flex;
 }
 .van-tabs--line .van-tabs__wrap {
-  width: 366px;
+  width: 414px;
+}
+.van-tabs__nav--line.van-tabs__nav--complete{
+  margin-right: 48px;
 }
 .select {
+  position: absolute;
+  right: 0px;
   width: 48px;
   height: 44px;
   text-align: center;
