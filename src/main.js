@@ -8,6 +8,11 @@ import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import axios from 'axios';
+import Video from 'video.js'
+import 'video.js/dist/video-js.css'
+
+Vue.prototype.$video = Video
+
 Vue.prototype.$axios = axios;
 Vue.use(Vant)
 Vue.config.productionTip = false

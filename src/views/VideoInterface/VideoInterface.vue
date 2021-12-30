@@ -1,17 +1,18 @@
 <template>
-  <div id="videoInterface">
+  <div>
+    <video id="myVideo" class="video-js" Autoplay>
+      <source src="../../assets/video/test.mp4" type="video/mp4" />
+    </video>
   </div>
 </template>
 <script>
 export default {
-  data(){
-    return{}
+  data() {
+    return {};
   },
-  methods:{
-  },
-  computed:{
-  }
-}
+  methods: {},
+  computed: {},
+};
 </script>
-<style>
+<style scoped>
 </style>
