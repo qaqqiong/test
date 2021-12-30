@@ -5,7 +5,9 @@
       <van-tab title="推荐">
         <Recommend></Recommend>
       </van-tab>
-      <van-tab title="热榜">内容 3</van-tab>
+      <van-tab title="旅游">
+        <Travel></Travel>
+      </van-tab>
       <van-tab title="美食">
         <Food></Food>
       </van-tab>
@@ -22,9 +24,10 @@
 <script>
 import Recommend from "./Recommend.vue";
 import Food from "./Food.vue";
-import History from "./History.vue"
+import History from "./History.vue";
+import Travel from "@/views/Home/Travel";
 export default {
-  components: { Recommend, Food ,History},
+  components: { Recommend, Food, History, Travel },
   data() {
     return {
       active: 1,

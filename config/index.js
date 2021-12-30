@@ -10,11 +10,11 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            '/list': {
+            '/bpi': {
                 target: 'http://m.toutiao.com', //后端接口地址
                 changeOrigin: true, //是否允许跨越
                 pathRewrite: {
-                    '^/list': '/list', //重写,
+                    '^/bpi': '', //重写,
                 }
             },
         },

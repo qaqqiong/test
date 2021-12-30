@@ -3,7 +3,16 @@
     <ul>
       <li v-for="(item, index) in message" :key="index">
         <div class="title">{{ item.title }}</div>
-        <img v-show="item.image_url!=null&&item.image_url!=''" :src="item.image_url">
+        <img v-show="item.large_image_url!=null&&item.large_image_url!=''" :src="item.large_image_url">
+        <div class="img1">
+          <div
+            class="imgList"
+            v-for="(item2, index2) in item.image_list"
+            :key="index2"
+          >
+            <img v-show="item.large_image_url==null||item.large_image_url==''" :src="item2.url" />
+          </div>
+        </div>
         <div class="message">
           <span class="belong">{{ item.media_name }}</span>
           <span class="com">{{item.comment_count}}评论</span>
@@ -29,7 +38,7 @@ export default {
       let that = this;
       this.$axios({
         method: "get",
-        url: "/list/",
+        url: "/bpi/list/",
         params: {
           tag: "news_food",
           ac: "wap",
@@ -93,5 +102,14 @@ img{
   width: 394px;
   height: 200px;
   margin: 3px 0px;
+}
+.img1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.imgList img {
+  width: 131px;
+  height: 100px;
 }
 </style>
