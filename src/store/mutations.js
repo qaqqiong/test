@@ -3,7 +3,7 @@ export default {
         this.state.recommendDetail = recommend
     },
     addSearchNum(state, value) {
-        var searchValue = state.searchValue;
+        var searchValue = this.state.searchValue;
         var flag = true;
         for (var i = 0; i < searchValue.length; i++) {
             if (searchValue[i].name == value) {
@@ -17,7 +17,7 @@ export default {
                 name: value,
                 num: 1
             }
-            searchValue.push(detail)
+            searchValue.splice(0, 0, detail)
         }
     }
 }

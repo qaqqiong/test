@@ -1,31 +1,29 @@
 <template>
-  <div>
-    111111
-  </div>
+  <div>{{message}}</div>
 </template>
 <script>
 export default {
-  data(){
-    return{
-      message:[]
-    }
+  data() {
+    return {
+      message: [],
+    };
   },
-  methods:{
-    getNum(){
-      this.message=this.searchValue()
-      console.log("111",this.message);
-    }
+  methods: {
+    getNum() {
+      this.message = this.searchValue;
+      localStorage.setItem("searchDetail", JSON.stringify(this.message));
+      console.log(this.message);
+    },
   },
-  computed:{
+  computed: {
     searchValue() {
       return this.$store.state.searchValue;
     },
-    mounted() {
-      this.getNum();
-      console.log(1111);
-    },
-  }
-}
+  },
+  mounted() {
+    this.getNum();
+  },
+};
 </script>
 <style scoped>
 </style>
