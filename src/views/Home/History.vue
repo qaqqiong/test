@@ -1,7 +1,7 @@
 <template>
   <div id="recommend">
     <ul>
-      <li v-for="(item, index) in message" :key="index">
+      <li v-for="(item, index) in message" :key="index" @click="toRecommendDetails(item.tag_id)">
         <div class="title">{{ item.title }}</div>
         <div class="img1">
           <div
@@ -55,6 +55,10 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
+    },
+    toRecommendDetails(value){
+      this.$store.commit("setRecommendDetail", value);
+      this.$router.push({name:"RecommendDetail"})
     },
   },
   computed: {},

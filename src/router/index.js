@@ -58,6 +58,15 @@ export default new Router({
             component: () =>
                 import ("@/views/Home/RecommendDetail.vue")
 
+        },
+        //搜索详情界面
+        {
+            name: "SearchDetails",
+            path: "/home/searchdetails",
+            meta: { showNav: true },
+            component: () =>
+                import ("@/views/Home/SearchDetails.vue")
+
         }
     ]
 })

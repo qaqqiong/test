@@ -5,6 +5,7 @@
       shape="round"
       background="red"
       placeholder="请输入搜索关键词"
+      @search="addSearchNum(value)"
     />
     <div class="issue">
       <div>+</div>
@@ -16,10 +17,21 @@
 export default {
   data() {
     return {
-      value:""
+      value:"",
+      searchMessage:[]
     };
   },
-  methods: {},
+  methods: {
+    toSearchDetails(value){
+      this.$store.commit("setSearchValue", value);
+      this.searchMessage.push(value);
+      console.log(this.searchMessage);
+    },
+    addSearchNum(value){
+      this.$store.commit("addSearchNum",value);
+      this.$router.push({name:"SearchDetails"})
+    }
+  },
   computed: {},
 };
 </script>

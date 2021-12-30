@@ -59,8 +59,8 @@ export default {
         method: "get",
         url: "/bpi/api/comment/list/",
         params: {
-          group_id: "7047298224171844099",
-          item_id: "7047298224171844099",
+          group_id: this.recommendDetail,
+          item_id: this.recommendDetail,
           offset: 0,
           count: 20,
         },
