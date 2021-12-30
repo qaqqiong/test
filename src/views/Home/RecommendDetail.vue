@@ -1,10 +1,15 @@
 <template>
-  <div id="RecommendDetail">
+  <div id="RecommendDetail" :class="{ bgc: flag2 == false }">
     <div class="header">
-      <img class="back" src="../../assets/Home/back.svg" @click="goBack()" />
-      <img src="../../assets/Home/耳机-02.svg" />
-      <img src="../../assets/Home/搜索.svg" />
-      <img src="../../assets/Home/更多.svg" />
+      <img v-if="flag2==true" class="back" src="../../assets/Home/back.svg" @click="goBack()" />
+      <img v-else class="back" src="../../assets/Home/back2.svg" @click="goBack()" />
+      <span @click="changeType()">切换主题</span>
+      <img v-if="flag2==true" src="../../assets/Home/耳机-02.svg" />
+      <img v-else src="../../assets/Home/耳机2.svg" />
+      <img v-if="flag2==true" src="../../assets/Home/搜索.svg" />
+      <img v-else src="../../assets/Home/搜索2.svg" />
+      <img v-if="flag2==true" src="../../assets/Home/更多.svg" />
+      <img v-else src="../../assets/Home/更多2.svg" />
     </div>
     <div class="title">{{ this.message.title }}</div>
     <div class="top">
@@ -38,13 +43,14 @@ export default {
       flag: "",
       message: [],
       commentList: [],
+      flag2: true,
     };
   },
   methods: {
     toAxios() {
       let that = this;
       this.$axios
-        .get("/bpi/"+this.flag+"/info/")
+        .get("/bpi/" + this.flag + "/info/")
         .then(function (response) {
           that.message = response.data.data;
           console.log(that.message);
@@ -76,6 +82,9 @@ export default {
     goBack() {
       this.$router.push({ name: "Home" });
     },
+    changeType(){
+      this.flag2=!this.flag2
+    }
   },
   computed: {
     recommendDetail() {
@@ -93,20 +102,24 @@ export default {
 </script>
 <style scoped>
 #RecommendDetail {
-  margin: 0px 10px;
+  padding: 0px 10px;
+}
+.bgc{
+  background-color: #000;
+  color: #fff;
 }
 .header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: 10px;
+  padding-top: 10px;
 }
 .header img {
   width: 25px;
   height: 25px;
 }
 .back {
-  margin-right: 240px;
+  margin-right: 180px;
 }
 .title {
   margin-top: 10px;
