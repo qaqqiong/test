@@ -10,7 +10,7 @@ import 'vant/lib/index.css';
 import axios from 'axios';
 import Video from 'video.js'
 import 'video.js/dist/video-js.css'
-
+import 'lib-flexible/flexible.js'
 Vue.prototype.$video = Video
 
 Vue.prototype.$axios = axios;

@@ -12,6 +12,8 @@
   "dependencies": {
     "axios": "^0.24.0",
     "element-ui": "^2.15.6",
+    "lib-flexible": "^0.3.2",
+    "px2rem-loader": "^0.1.9",
     "vant": "^2.12.37",
     "video.js": "^7.17.0",
     "videojs-contrib-hls": "^5.15.0",

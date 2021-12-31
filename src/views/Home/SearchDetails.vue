@@ -1,5 +1,10 @@
 <template>
-  <div>{{message}}</div>
+  <div>
+    <div class="top">
+      <img src="../../assets/Home/back.svg" @click="goBack()">
+    </div>
+    <div>{{ message }}</div>
+  </div>
 </template>
 <script>
 export default {
@@ -14,6 +19,9 @@ export default {
       localStorage.setItem("searchDetail", JSON.stringify(this.message));
       console.log(this.message);
     },
+    goBack(){
+      this.$router.push({name:"Home"})
+    }
   },
   computed: {
     searchValue() {
@@ -26,4 +34,16 @@ export default {
 };
 </script>
 <style scoped>
+.top{
+  width: 414px;
+  height: 30px;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.top img{
+  width: 25px;
+  height: 25px;
+}
 </style>
