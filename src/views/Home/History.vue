@@ -1,32 +1,40 @@
 <template>
   <div id="recommend">
-    <ul>
-      <li v-for="(item, index) in message" :key="index" @click="toRecommendDetails(item.tag_id)">
-        <div class="title">{{ item.title }}</div>
-        <div class="img1">
-          <div
-            class="imgList"
-            v-for="(item2, index2) in item.image_list"
-            :key="index2"
-          >
-            <img :src="item2.url" />
+    <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+      <ul>
+        <li
+          v-for="(item, index) in message"
+          :key="index"
+          @click="toRecommendDetails(item.tag_id)"
+        >
+          <div class="title">{{ item.title }}</div>
+          <div class="img1">
+            <div
+              class="imgList"
+              v-for="(item2, index2) in item.image_list"
+              :key="index2"
+            >
+              <img :src="item2.url" />
+            </div>
           </div>
-        </div>
-        <div class="message">
-          <span class="belong">{{ item.media_name }}</span>
-          <span class="com">{{ item.comment_count }}评论</span>
-          <span class="datetime">{{ item.datetime }}</span>
-        </div>
-        <hr />
-      </li>
-    </ul>
+          <div class="message">
+            <span class="belong">{{ item.media_name }}</span>
+            <span class="com">{{ item.comment_count }}评论</span>
+            <span class="datetime">{{ item.datetime }}</span>
+          </div>
+          <hr />
+        </li>
+      </ul>
+    </van-pull-refresh>
   </div>
 </template>
 <script>
+import { Toast } from "vant";
 export default {
   data() {
     return {
       message: [],
+      isLoading: false,
     };
   },
   mounted() {
@@ -56,9 +64,16 @@ export default {
           console.log(error);
         });
     },
-    toRecommendDetails(value){
+    toRecommendDetails(value) {
       this.$store.commit("setRecommendDetail", value);
-      this.$router.push({name:"RecommendDetail"})
+      this.$router.push({ name: "RecommendDetail" });
+    },
+    onRefresh() {
+      this.toAxios();
+      setTimeout(() => {
+        Toast("刷新成功");
+        this.isLoading = false;
+      }, 1000);
     },
   },
   computed: {},
@@ -105,7 +120,7 @@ img {
   height: 200px;
   margin: 3px 0px;
 }
-.img1{
+.img1 {
   display: flex;
   align-items: center;
   justify-content: center;
